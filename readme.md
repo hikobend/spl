@@ -33,6 +33,7 @@ curl http://localhost:8080/recruitments \
 --data '{"id": 4,"title": "タイトルD","need": "意欲が高い"}'
 ````
 
+r.PATCH("/recruitment/:id", patchRecruitment)   // 募集要項を更新
 ````
 curl http://localhost:8080/recruitment/1 \
 --header "Content-Type: application/json" \
@@ -40,6 +41,7 @@ curl http://localhost:8080/recruitment/1 \
 --data '{"title": "XXX","need": "YYY"}'
 ````
 
+r.DELETE("/recruitment/:id", deleteRecruitment) // 募集要項を削除
 ````
 curl http://localhost:8080/todos/2 \
 --request "DELETE"
