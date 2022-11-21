@@ -1,4 +1,4 @@
-それぞれの
+それぞれの動作確認
 
 r.GET("/recruitments", getRecruitments)        // 募集要項一覧を表示
 ````
