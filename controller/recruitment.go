@@ -54,11 +54,10 @@ func GetRecruitmentById(c *gin.Context) {
 
 }
 
-// https://qiita.com/ko-watanabe/items/64134c0a3871856fdc17
 func PostRecruitment(c *gin.Context) {
 	var newRecruitment recruitment // newRecruitmentを募集テーブルにて作成
 
-	err := c.BindJSON(&newRecruitment) // 渡した構造体ポインターをバインド
+	err := c.BindJSON(&newRecruitment) // 渡した構造体ポインターをバインド  https://qiita.com/ko-watanabe/items/64134c0a3871856fdc17
 	if err != nil {
 		log.Fatalln(err) // エラーハンドリング
 	}
@@ -106,5 +105,4 @@ func DeleteRecruitment(c *gin.Context) {
 		}
 	}
 	c.IndentedJSON(http.StatusNotFound, gin.H{"message": "見つかりませんでした💦"})
-
 }
