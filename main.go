@@ -1,11 +1,13 @@
 package main
 
 import (
+	"log"
+
 	"github.com/gin-gonic/gin"
 	"github.com/hikobend/spl/controller"
 )
 
-func main() {
+func SetUpServer() *gin.Engine {
 	r := gin.Default() // gin呼び出し
 
 	// ---------------
@@ -20,12 +22,16 @@ func main() {
 	// ---------------
 	// ユーザーCRUD
 	// ---------------
-
 	r.GET("/users", controller.GetUsers)         // ユーザー一覧を表示
 	r.GET("/user/:id", controller.GetUserById)   // 指定したユーザーを表示
 	r.POST("/user", controller.PostUser)         // ユーザーを追加
 	r.PATCH("/user/:id", controller.PatchUser)   // ユーザー情報を更新
 	r.DELETE("/user/:id", controller.DeleteUser) // ユーザーを削除
 
-	r.Run("localhost:8080") // localhost:8080で実行
+	return r
+}
+
+func main() {
+	log.Fatalln("Server start")
+	SetUpServer().Run()
 }
